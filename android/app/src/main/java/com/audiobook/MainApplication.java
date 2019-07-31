@@ -3,6 +3,12 @@ package com.audiobook;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.slider.ReactSliderPackage;
+import com.airbnb.android.react.lottie.LottiePackage;
+//import io.invertase.firebase.RNFirebaseAdMobPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage; // <-- Add this line
 import com.guichaguri.trackplayer.TrackPlayer;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.ijzerenhein.magicmove.ReactMagicMovePackage;
@@ -25,10 +31,16 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new TrackPlayer(),
-            new RNGestureHandlerPackage(),
-            new ReactMagicMovePackage()
+        new MainReactPackage(),
+            new ReactSliderPackage(),
+            new LottiePackage(),
+        new RNFirebasePackage(),
+        new RNFirebaseAuthPackage(),
+        new RNFirebaseFirestorePackage(), // <-- Add this line
+//        new RNFirebaseAdMobPackage(),
+        new TrackPlayer(),
+        new RNGestureHandlerPackage(),
+        new ReactMagicMovePackage()
       );
     }
 

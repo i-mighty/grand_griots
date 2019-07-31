@@ -54,7 +54,7 @@ class EditProfile extends Component {
                                 <Row style={styles.infoRow}>
                                     <Col>
                                         <SubRowInput placeholder='Chimamanda Ngozi Adichie' iconType='Entypo' iconName='user'/>
-                                        <SubRowInput placeholder='Your inspirational quote' iconName='quote'/>
+                                        {/* <SubRowInput placeholder='Your inspirational quote' iconName='quote'/> */}
                                         {/* <SubRowInput subText='adeolathecrown@gmail.com' iconType='Entypo' iconName='mail'/> */}
                                     </Col>
                                 </Row>

@@ -15,7 +15,7 @@ export default class BookCard extends Component {
         const index = this.props.index
         return (
             <NBCard style={this.props.big?styles.homeCardBig:styles.homeCard}>
-                <CardItem cardBody button style={styles.homeCardItem} onPress={() => this.props.navigation.navigate('Book')}>
+                <CardItem cardBody button style={styles.homeCardItem} onPress={() => this.props.navigation.navigate('Book', {book: item})}>
                     {
                         this.props.imageOnly?(
                             <Image
@@ -25,9 +25,10 @@ export default class BookCard extends Component {
                         ):(
                             <ImageBackground
                                 source={{uri: item.image}}
-                                style={styles.homeCardBG}
+                                style={[styles.homeCardBG, {height: 150}]}
+                                resizeMode='stretch'
                             >
-                                <View style={this.props.big?styles.homeCardContentBig:styles.homeCardContent}>
+                                {/* <View style={this.props.big?styles.homeCardContentBig:styles.homeCardContent}>
                                     <Row>
                                         <Col style={styles.homeCardButton}>
                                             <Button transparent small info>
@@ -40,7 +41,7 @@ export default class BookCard extends Component {
                                             </Button>
                                         </Col>
                                     </Row>
-                                </View>
+                                </View> */}
                             </ImageBackground>
                         )
                     }

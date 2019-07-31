@@ -111,13 +111,13 @@ export default {
   brandSuccess: "#BDD999",
   brandDanger: "#F15E15",
   brandWarning: "#f0ad4e",
-  brandDark: "#2C2C2C",
+  brandDark: "#444",
   brandLight: "#FBFBFB",
   brandDeepBlue: "#1876E8",
   brandGrey: "#C2C2C2",
 
   //Container
-  containerBgColor: "#fff",
+  containerBgColor: "#444444",
 
   //Date Picker
   datePickerTextColor: "#000",

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "324658424336",
+    "firebase_url": "https://the-grand-griots.firebaseio.com",
+    "project_id": "the-grand-griots",
+    "storage_bucket": "the-grand-griots.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324658424336:android:c6e8703ca7041532",
+        "android_client_info": {
+          "package_name": "com.audiobook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324658424336-snqfv6thfnlqfvqkdp426vk15cpeofb7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu-lKlj4RDem4WNuN3l2tdB4Ljz1_3gxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324658424336-snqfv6thfnlqfvqkdp426vk15cpeofb7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

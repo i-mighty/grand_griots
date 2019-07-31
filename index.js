@@ -12,8 +12,10 @@ import SideMenu from './app/views/SideMenu';
 import Profile from './app/views/Profile';
 import EditProfile from './app/views/EditProfile';
 import Book from './app/views/Book';
+import MailSent from './app/views/MailSent';
 import TrackPlayer from 'react-native-track-player';
 import Library from './app/views/Library'
+import GridSection from './app/views/GridSection'
 
 AppRegistry.registerComponent(appName, () =>  App);
 TrackPlayer.registerPlaybackService(() => require('./service.js'));

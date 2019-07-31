@@ -22,10 +22,10 @@ export default StyleSheet.create({
     //Home
     //Section Component
     headerText: {
-        ...material.subheadingObject,
+        ...material.subheadingWhiteObject,
         ...systemWeights.semibold,
         borderBottomColor: platform.brandPrimary,
-        borderBottomWidth: 7.5,
+        borderBottomWidth: 2,
         paddingRight: 20,
         paddingVertical: 5,
         paddingLeft: 10
@@ -35,6 +35,12 @@ export default StyleSheet.create({
     },
     homeCard:{
         width: 120,
+        elevation: 5,
+        padding: 1,
+        // borderRadius: 10
+    },
+    gridCard: {
+        height: 130,
         elevation: 5,
         padding: 1,
         // borderRadius: 10
@@ -68,8 +74,14 @@ export default StyleSheet.create({
         backgroundColor: '#2228',
         padding: 5
     },
+    gridCardContent: {
+        marginTop: 50,
+        backgroundColor: '#2228',
+        // padding: 5
+    },
     homeCardContentBrief:{
-        backgroundColor: '#222A',
+        width: 120,
+        backgroundColor: '#555',
         padding: 5
     },
     homeCardContentBig: {
@@ -102,7 +114,7 @@ export default StyleSheet.create({
         // alignItems: 'center'
     },
     infoRow:{
-        backgroundColor: platform.brandInfo,
+        backgroundColor: "#444",
         paddingHorizontal: wp('7.5%'),
         paddingVertical: 20
     },

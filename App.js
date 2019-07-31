@@ -17,7 +17,15 @@ import Profile from './app/views/Profile';
 import Book from './app/views/Book';
 import Library from './app/views/Library';
 import Auth from './app/views/Auth';
+import MailSent from './app/views/MailSent';
 import EditProfile from './app/views/EditProfile';
+import Categories from './app/views/Categories';
+import NewRelease from './app/views/NewRelease';
+import Help from './app/views/Help';
+import Setting from './app/views/Setting';
+import Suggest from './app/views/Suggest';
+import Category from './app/views/Category';
+import { Root } from 'native-base';
 
 const ProfileStack = createStackNavigator({
   Home: {
@@ -29,6 +37,31 @@ const ProfileStack = createStackNavigator({
 }, {
   headerMode: 'none'
 });
+
+const CategoriesNav = createStackNavigator({
+  Home: {
+    screen: Categories
+  }, 
+  Category:{
+    screen: Category
+  },
+  Book: {
+    screen : Book
+  },
+}, {
+  headerMode: 'none'
+})
+
+const NewReleases = createStackNavigator({
+  Home: {
+    screen: NewRelease
+  },
+  Book: {
+    screen: Book
+  },
+}, {
+  headerMode: 'none'
+})
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -52,6 +85,17 @@ const LibraryStack = createStackNavigator({
   headerMode: 'none'
 })
 
+const AuthStack=createStackNavigator({
+  Home: {
+    screen: Auth
+  },
+  MailSent: {
+    screen: MailSent
+  }
+}, {
+  headerMode: 'none'
+})
+
 const AppNav = createDrawerNavigator({
   Explore: {
     screen: HomeStack
@@ -62,13 +106,26 @@ const AppNav = createDrawerNavigator({
   Library:{
     screen: LibraryStack
   },
-  Book:{
-    screen: Book
-  },
   Auth: {
-    screen: Auth
+    screen: AuthStack
+  },
+  Categories:{
+    screen: CategoriesNav
+  },
+  NewReleases: {
+    screen: NewReleases
+  },
+  Help:{
+    screen: Help
+  },
+  Suggest:{
+    screen: Suggest
+  },
+  Settings:{
+    screen: Setting
   }
 },{
+  initialRouteName: 'Auth',
   contentComponent: (props) => <SideMenu {...props}/>,
   drawerWidth: widthPercentageToDP('100%')
 })
@@ -78,9 +135,11 @@ const AppContainer = createAppContainer(AppNav)
 export default class App extends Component<Props> {
   render() {
     return (
-      <MagicMove.Provider>
-        <AppContainer/>
-      </MagicMove.Provider>
+      <Root>
+        <MagicMove.Provider>
+          <AppContainer/>
+        </MagicMove.Provider>
+      </Root>
     );
   }
 }

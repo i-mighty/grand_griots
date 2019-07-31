@@ -66,6 +66,11 @@
 		283761809D0C48438AA49F1A /* libMusicControl-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 823D2F6CB3614C5895522C7B /* libMusicControl-tvOS.a */; };
 		E80F0794CE3546A8BEC6F581 /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3260C8F1F69470CAD0F91F4 /* RNPlaceholder.swift */; };
 		99338F536AFF48F4B8A929DA /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF324C96CC8B4A4DA33A7D4A /* libRNTrackPlayer.a */; };
+		FD48A74CA2FD4C43BF032488 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E53E58CD8444AECB17E0FC9 /* libRNFirebase.a */; };
+		7A7E2731106442EF81AA4554 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C08966B94D54FB3B9C9E3B2 /* Lottie.framework */; };
+		F06619BC611241BFA11A26D5 /* libLottie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED28DA929D849CF8033E126 /* libLottie.a */; };
+		4AD56F6B1FE54B57A41C9077 /* libLottieReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467E980FD6D471E95FC4E20 /* libLottieReactNative.a */; };
+		05903F955B82426CB378448B /* libRNCSlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFED866FBCDA4714ADFE529C /* libRNCSlider.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +411,15 @@
 		D3260C8F1F69470CAD0F91F4 /* RNPlaceholder.swift */ = {isa = PBXFileReference; name = "RNPlaceholder.swift"; path = "RNPlaceholder.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		51750C924B8646FD95A0168E /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; name = "RNTrackPlayer.xcodeproj"; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		BF324C96CC8B4A4DA33A7D4A /* libRNTrackPlayer.a */ = {isa = PBXFileReference; name = "libRNTrackPlayer.a"; path = "libRNTrackPlayer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BD3B478F9BA244E7AECDB3B7 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; name = "RNFirebase.xcodeproj"; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		6E53E58CD8444AECB17E0FC9 /* libRNFirebase.a */ = {isa = PBXFileReference; name = "libRNFirebase.a"; path = "libRNFirebase.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		C68D362485AE401AB0DBCA47 /* Lottie.xcodeproj */ = {isa = PBXFileReference; name = "Lottie.xcodeproj"; path = "../node_modules/lottie-ios/Lottie.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4C08966B94D54FB3B9C9E3B2 /* Lottie.framework */ = {isa = PBXFileReference; name = "Lottie.framework"; path = "System/Library/Frameworks/Lottie.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7ED28DA929D849CF8033E126 /* libLottie.a */ = {isa = PBXFileReference; name = "libLottie.a"; path = "libLottie.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D21FF05DBD6B404FA2E7412A /* LottieReactNative.xcodeproj */ = {isa = PBXFileReference; name = "LottieReactNative.xcodeproj"; path = "../node_modules/lottie-react-native/src/ios/LottieReactNative.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2467E980FD6D471E95FC4E20 /* libLottieReactNative.a */ = {isa = PBXFileReference; name = "libLottieReactNative.a"; path = "libLottieReactNative.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		6CE8A641DFED4E9582529CF1 /* RNCSlider.xcodeproj */ = {isa = PBXFileReference; name = "RNCSlider.xcodeproj"; path = "../node_modules/@react-native-community/slider/ios/RNCSlider.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		DFED866FBCDA4714ADFE529C /* libRNCSlider.a */ = {isa = PBXFileReference; name = "libRNCSlider.a"; path = "libRNCSlider.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +454,11 @@
 				15BEB0A182784888AA64D78F /* libRNSound.a in Frameworks */,
 				1531C9FCC00A4BCFBD6B7359 /* libMusicControl.a in Frameworks */,
 				99338F536AFF48F4B8A929DA /* libRNTrackPlayer.a in Frameworks */,
+				FD48A74CA2FD4C43BF032488 /* libRNFirebase.a in Frameworks */,
+				7A7E2731106442EF81AA4554 /* Lottie.framework in Frameworks */,
+				F06619BC611241BFA11A26D5 /* libLottie.a in Frameworks */,
+				4AD56F6B1FE54B57A41C9077 /* libLottieReactNative.a in Frameworks */,
+				05903F955B82426CB378448B /* libRNCSlider.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +656,10 @@
 				D347FEA14E1D4D00866A7DDA /* RNSound.xcodeproj */,
 				30D6D184FD7B44EEA9D00D33 /* MusicControl.xcodeproj */,
 				51750C924B8646FD95A0168E /* RNTrackPlayer.xcodeproj */,
+				BD3B478F9BA244E7AECDB3B7 /* RNFirebase.xcodeproj */,
+				C68D362485AE401AB0DBCA47 /* Lottie.xcodeproj */,
+				D21FF05DBD6B404FA2E7412A /* LottieReactNative.xcodeproj */,
+				6CE8A641DFED4E9582529CF1 /* RNCSlider.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1321,6 +1344,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1330,6 +1358,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1360,6 +1391,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1369,6 +1405,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1398,6 +1437,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1426,6 +1468,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1464,6 +1509,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1473,6 +1523,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1511,6 +1564,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1520,6 +1578,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1557,6 +1618,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1566,6 +1632,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
@@ -1603,6 +1672,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1612,6 +1686,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
 					"$(SRCROOT)\..\node_modules\react-native-music-control\ios",
 					"$(SRCROOT)\..\node_modules\react-native-track-player\ios\RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/lottie-react-native/src/ios/LottieReactNative",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				SWIFT_VERSION = 4.0;
 			};
