@@ -15,7 +15,8 @@ class Category extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.navigation.getParam('title', 'Category'),
+            // title: this.props.navigation.getParam('title', 'Category'),
+            title: this.props.navigation.getParam('link', ''),
             loading: true,
             books: []
         };
@@ -23,7 +24,7 @@ class Category extends Component {
 
     async componentDidMount(){
         var books = [];
-        fs.collection('sample_books').where('genre', '==', this.state.title.toLowerCase()).get().then(col => {
+        fs.collection('sample_books').where('genre', '==', this.state.link.toLowerCase()).get().then(col => {
             col.forEach(doc => {
                 books.push(doc.data());
             })

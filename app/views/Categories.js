@@ -40,11 +40,11 @@ class Categories extends Component {
         super(props);
         this.state = {
             cats: [
-                { name: 'Non Fiction', code: '#1abc9c', icon: require('../assets/Categories/nonFiction.png') }, { name: 'Fiction', code: '#2ecc71', icon: require('../assets/Categories/fiction.png') },
-                { name: 'Children and teenagers', code: '#3498db', icon: require('../assets/Categories/children.png') }, { name: 'Love and marriage', code: '#9b59b6', icon: require('../assets/Categories/love.png') },
-                { name: 'Self Help', code: '#34495e', icon: require('../assets/Categories/selfHelp.png') }, { name: 'Free', code: '#16a085', icon: require('../assets/Categories/free.png') },
-                { name: 'Erotica', code: '#27ae60', icon: require('../assets/Categories/erotica.png') }, { name: 'Yoruba', code: '#2980b9', icon: require('../assets/Categories/yoruba.png') },
-                { name: 'Faith Based', code: '#8e44ad', icon: require('../assets/Categories/faith.png') }, { name: 'Business', code: '#2c3e50', icon: require('../assets/Categories/business.png') },
+                { name: 'Non Fiction', link:'non_fiction', code: '#1abc9c', icon: require('../assets/Categories/nonFiction.png') }, { name: 'Fiction', link:'fiction', code: '#2ecc71', icon: require('../assets/Categories/fiction.png') },
+                { name: 'Children and teenagers', link:'children', code: '#3498db', icon: require('../assets/Categories/children.png') }, { name: 'Love and marriage', link:'love', code: '#9b59b6', icon: require('../assets/Categories/love.png') },
+                { name: 'Self Help', link:'self_help', code: '#34495e', icon: require('../assets/Categories/selfHelp.png') }, { name: 'Free', link:'free', code: '#16a085', icon: require('../assets/Categories/free.png') },
+                { name: 'Erotica', link:'erotica', code: '#27ae60', icon: require('../assets/Categories/erotica.png') }, { name: 'Yoruba', link:'yoruba', code: '#2980b9', icon: require('../assets/Categories/yoruba.png') },
+                { name: 'Faith Based', link:'faith', code: '#8e44ad', icon: require('../assets/Categories/faith.png') }, { name: 'Business', link:'business', code: '#2c3e50', icon: require('../assets/Categories/business.png') },
             ]
         };
     }
@@ -63,7 +63,7 @@ class Categories extends Component {
                             // fixed
                             // spacing={20}
                             renderItem={({item, index}) => (
-                                <TouchableOpacity style={[styles.itemContainer, {backgroundColor: item.code}]} onPress={() => this.props.navigation.navigate('Category', {title: item.name})}>
+                                <TouchableOpacity style={[styles.itemContainer, {backgroundColor: item.code}]} onPress={() => this.props.navigation.navigate('Category', {title: item.name, link: item})}>
                                     <Thumbnail source={item.icon} large square/>
                                     <Text style={styles.itemName}>{item.name}</Text>
                                 </TouchableOpacity>
