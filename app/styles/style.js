@@ -80,7 +80,7 @@ export default StyleSheet.create({
         // padding: 5
     },
     homeCardContentBrief:{
-        width: 120,
+        width: '100%',
         backgroundColor: '#555',
         padding: 5
     },
