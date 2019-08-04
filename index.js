@@ -16,6 +16,7 @@ import MailSent from './app/views/MailSent';
 import TrackPlayer from 'react-native-track-player';
 import Library from './app/views/Library'
 import GridSection from './app/views/GridSection'
+import Intro from './app/views/Intro';
 
 AppRegistry.registerComponent(appName, () =>  App);
 TrackPlayer.registerPlaybackService(() => require('./service.js'));

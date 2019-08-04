@@ -13,19 +13,42 @@ import Axios from 'axios';
 import { material, iOSColors, materialColors } from 'react-native-typography';
 import firebase from 'react-native-firebase';
 import { ConfirmDialog } from 'react-native-simple-dialogs';
+import moment from 'moment';
 
+const fs = firebase.firestore();
+var user = firebase.auth().currentUser;
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             quote:'',
             progress: 0,
+            daysLeft: '',
             dialogVisible: false
         };
     }
 
+    componentDidMount(){
+        //Get active sub
+        fs.collection('subscriptions').doc(user.uid).get().then(doc => {
+            if (doc.exists) {
+                var sub = doc.data()
+                var now = moment()
+                var start = moment(sub.date_started)
+                var due = moment(sub.due_date)
+                var elapsed = start.diff(now, 'seconds', false);
+                var total = start.diff(due, 'seconds', false);
+                var progress = (elapsed/total).toFixed(2)
+                var daysLeft =Math.round(moment.duration(due - now).asDays());
+                this.setState({progress, daysLeft})
+                // alert(progress)
+            } else {
+                
+            }
+        })
+    }
+
     render() {
-        var user = firebase.auth().currentUser;
         return (
             // <MagicMove.Scene>
                 <Container>
@@ -54,27 +77,31 @@ class Profile extends Component {
                                     <Col>
                                         <SubRow text={user.displayName} iconType='Entypo' iconName='user'/>
                                         <SubRow subText={user.email} iconType='Entypo' iconName='mail'/>
-                                        <SubRow subText='No active subscription' iconType='AntDesign' iconName='creditcard'/>
+                                        <SubRow subText={this.state.daysLeft?'Active subscription':'No active subscription'} iconType='AntDesign' iconName='creditcard'/>
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col style={{justifyContent: 'center', alignItems: 'center', paddingVertical: 20, borderRightColor: platform.brandPrimary, borderRightWidth: 0.5}}>
+                                    {/* <Col style={{justifyContent: 'center', alignItems: 'center', paddingVertical: 20, borderRightColor: platform.brandPrimary, borderRightWidth: 0.5}}>
                                         <Text style={{...material.display1Object, color: platform.brandInfo}}>0</Text>
                                         <Text style={{...material.body1Object, color: platform.brandInfo}}>Books listened to</Text>
-                                    </Col>
+                                    </Col> */}
                                     <Col style={{justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
                                         <Progress.Circle size={50} progress={this.state.progress} thickness={3} strokeCap='round' showsText color={platform.brandInfo}
                                             formatText={(progress) => {
                                                 return (<Text style={{...material.body1Object, color: platform.brandInfo}}>{100*this.state.progress}%</Text>)
                                             }}
                                         />
-                                        <Text style={{...material.body1Object, color: platform.brandInfo}}>Upgrade to premium</Text>
+                                        <Text style={{...material.body1Object, color: platform.brandInfo}}>
+                                            {
+                                                this.state.daysLeft?this.state.daysLeft+" days of premium left":"Upgrade to premium"
+                                            }
+                                        </Text>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Button full onPress={() => this.setState({dialogVisible: false})}>
-                                            <NBText>Extend your subscription</NBText>
+                                        <Button full onPress={() => this.setState({dialogVisible: true})}>
+                                            <NBText>{this.state.daysLeft?"Extend your subscription":"Subscribe"}</NBText>
                                         </Button>
                                     </Col>
                                 </Row>
@@ -88,7 +115,10 @@ class Profile extends Component {
                         onTouchOutside={() => this.setState({dialogVisible: false})}
                         positiveButton={{
                             title: "YES",
-                            onPress: () => this.props.navigation.navigate('Payment', {plan:'M', price: 1000})
+                            onPress: () => {
+                                this.setState({dialogVisible: false})
+                                this.props.navigation.navigate('Payment', {plan:'M', price: 1000})
+                            }
                         }}
                         negativeButton={{
                             title: "NO",

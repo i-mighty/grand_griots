@@ -26,6 +26,8 @@ import Setting from './app/views/Setting';
 import Suggest from './app/views/Suggest';
 import Category from './app/views/Category';
 import { Root } from 'native-base';
+import Payment from './app/views/Payment';
+import Intro from './app/views/Intro';
 
 const ProfileStack = createStackNavigator({
   Home: {
@@ -123,9 +125,15 @@ const AppNav = createDrawerNavigator({
   },
   Settings:{
     screen: Setting
+  },
+  Payment:{
+    screen: Payment
+  },
+  Intro: {
+    screen: Intro
   }
 },{
-  initialRouteName: 'Auth',
+  initialRouteName: 'Intro',
   contentComponent: (props) => <SideMenu {...props}/>,
   drawerWidth: widthPercentageToDP('100%')
 })
