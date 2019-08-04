@@ -72,8 +72,8 @@ class SideMenu extends Component {
 
     render() {
         return (
-            <View style={{paddingTop: 30}}>
-                <Row style={{ paddingLeft: 5, paddingBottom: 20, marginTop: 2, marginBottom: 30}}>
+            <ScrollView style={{paddingTop: 10}}>
+                <Row style={{ paddingLeft: 5, paddingBottom: 0, marginTop: 2, marginBottom: 10}}>
                     <Button transparent danger onPress={() => this.props.navigation.closeDrawer()}>
                         <Icon type='AntDesign' name='close'/>
                     </Button>
@@ -115,17 +115,17 @@ class SideMenu extends Component {
                         </Row>
                         <Row style={[{borderBottomColor: platform.brandDark, borderBottomWidth: 2}]}>
                             <Button transparent dark >
-                                <Text>Recommend The Grand Griots</Text>
+                                <Text>Recommend Us</Text>
                             </Button>
                         </Row>
                     </Grid>
                 </ScrollView>
-                <Row style={{paddingVertical: 30, marginTop: 50}}>
+                <Row style={{paddingVertical: 30, marginVertical: 50}}>
                     <Col style={[this.style, {width: 75}]}>
-                        <Thumbnail source={require('../assets/icon.png')} style={{height: 75, width: 75, borderWidth:1, borderColor: platform.brandPrimary}}/>
+                        <Thumbnail source={require('../assets/icon.png')} style={{height: 75, width: 75, borderWidth:0, borderColor: platform.brandPrimary}}/>
                     </Col>
                 </Row>
-            </View>
+            </ScrollView>
         );
     }
     navigate(route){
