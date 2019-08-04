@@ -58,7 +58,7 @@ class Help extends Component {
                                             <Input placeholder="Name of author" style={material.body1} onChangeText={(author) => this.setState({author})}/>
                                         </Item>
                                         <Textarea rowSpan={5} bordered style={styles.input} placeholder="Brief description of the book." onChangeText={(info) => this.setState({info})}/>
-                                        <Button block style={styles.input} onPress={() => this.login()}>
+                                        <Button block style={styles.input} onPress={() => this.submit()}>
                                             <Text style={material.body1White}>Submit</Text>
                                         </Button>
                                     </Form>
@@ -80,19 +80,22 @@ class Help extends Component {
         var {title, author, info} = this.state;
         this.setState({spinner: true})
         if (this.state) {
-            fs.collection('reports').add({
+            fs.collection('suggestions').add({
                 title: title,
                 author: author,
                 info: info,
                 user: auth.currentUser.toJSON()
             }).then(val => {
                 Toast.show({
-                    text: 'Your report has been submitted successfully.\nWe would review it and get back to you.'
+                    text: 'Your suggestion has been received.\nWe would review it and get back to you.',
+                    duration: 4000
                 })
                 this.setState({spinner: false})
             }).catch(err => {
                 Toast.show({
-                    text: 'You report may not have been successfully sent.\nPlease try again.'
+                    text: 'You report may not have been successfully sent.\nPlease try again.',
+                    type: 'danger',
+                    duration: 4000,
                 })
                 this.setState({spinner: false})
             })
