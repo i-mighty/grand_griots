@@ -16,6 +16,18 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import { material } from 'react-native-typography';
 import moment from 'moment';
 
+const genres = {
+    non_fiction: "Non Fiction",
+    fiction: "Fiction",
+    love: "Love",
+    children: "Children and Teenagers",
+    self_help: "Self Help",
+    free: "Free",
+    erotica: "Erotica",
+    yoruba: "Yoruba",
+    faith: "Faith Based",
+    business: "Business"
+}
 
 
 const fs = firebase.firestore();
@@ -52,32 +64,37 @@ class Book extends Component {
     }
 
     async componentDidMount(){
-
-        await fs.collection('subscriptions').doc(user.uid).get().then(doc => {
-            var sub_due_date = doc.data().due_date
-            if (moment().isBefore(sub_due_date)) {
-                var active_sub = true
-            }else{
+        fs.collection('subscriptions').doc(user.uid).get().then(doc => {
+            if (doc.exists) {
+                var sub_due_date = doc.data().due_date
+                if (moment().isBefore(sub_due_date)) {
+                    var active_sub = true
+                } else {
+                    var active_sub = false
+                }
+            } else {
                 var active_sub = false
             }
             this.setState({sub_due_date, active_sub, spinner: false})
+            TrackPlayer.setupPlayer().then(async () => {
+                //Add the book to queue
+                await TrackPlayer.add({
+                    id: '1',
+                    url: this.state.active_sub ? this.state.book.audio_file : this.state.book.preview_file,
+                    title: this.state.book.name,
+                    artist: this.state.book.voiced_by,
+                    artwork: this.state.book.image
+                });
+            })
         }).catch(err => {
+            this.setState({spinner: false})
             Toast.show({
-                text: 'Please try again' + err.message,
-                type: 'danger'
+                text: 'Could not confirm your subscription. Please confirm if you have an active subscription before trying again.\n',
+                type: 'danger',
+                duration: 3000,
             })
         } )
 
-        TrackPlayer.setupPlayer().then(async () => {
-            //Add the book to queue
-            await TrackPlayer.add({
-                id:'1',
-                url: this.state.active_sub?this.state.book.audio_file: this.state.book.preview_file,
-                title: this.state.book.name,
-                artist: this.state.book.voiced_by,
-                artwork: this.state.book.image
-            });
-        })
     }
 
     onPlayButtonPush(){
@@ -108,6 +125,7 @@ class Book extends Component {
     }
 
     render() {
+        const {book} = this.state
         return (
             <StyleProvider style={getTheme(platform)}>
                 <Content>
@@ -119,7 +137,7 @@ class Book extends Component {
                                     resizeMode='cover'
                                     style={styles.imgBackground}
                                 >
-                                    <Header text='Preview' navigation={this.props.navigation} subView={true} dark={true} style={{backgroundColor: '#2228'}}/>
+                                    <Header text={this.state.book.name} navigation={this.props.navigation} subView={true} dark={true} style={{backgroundColor: '#2228'}}/>
                                     <View style = {
                                         [{
                                             backgroundColor: '#2228',
@@ -160,24 +178,24 @@ class Book extends Component {
                         </Row>
                         <Row style={styles.infoRow}>
                             <Col>
-                                <SubRow text={this.state.book.author} iconType='Entypo' iconName='pencil'/>
-                                <SubRow subText={this.state.book.name} iconType='Entypo' iconName='open-book'/>
-                                <SubRow subText={this.state.book.info} iconType='AntDesign' iconName='infocirlceo'/>
-                                <SubRow subText={this.state.book.genre} iconType='FontAwesome5' iconName='theater-masks'/>
-                                <SubRow subText={this.state.book.time + "minutes"} iconType='Entypo' iconName='time-slot'/>
-                                <SubRow subText={this.state.book.language} iconType='Entypo' iconName='language'/>
-                                <SubRow subText={this.state.book.voiced_by} iconType='Entypo' iconName='mic'/>
+                                <SubRow text={book.author} iconType='Entypo' iconName='pencil'/>
+                                <SubRow subText={book.name} iconType='Entypo' iconName='open-book'/>
+                                <SubRow subText={book.info} iconType='AntDesign' iconName='infocirlceo'/>
+                                <SubRow subText={this.getGenre(book.genre)} iconType='FontAwesome5' iconName='theater-masks'/>
+                                <SubRow subText={book.time + "minutes"} iconType='Entypo' iconName='time-slot'/>
+                                <SubRow subText={book.language} iconType='Entypo' iconName='language'/>
+                                <SubRow subText={book.voiced_by} iconType='Entypo' iconName='mic'/>
                             </Col>
                         </Row>
                         <Row>
-                            <Col>
+                            {/* <Col>
                                 <Button success full large iconLeft>
                                     <Icon type='AntDesign' name='playcircleo'/> 
                                     <NBText>
                                         Listen
                                     </NBText>
                                 </Button>
-                            </Col>
+                            </Col> */}
                             <Col>
                                 <Button full large iconLeft onPress={() => this.save()}>
                                     <Icon type='AntDesign' name='plus'/> 
@@ -196,6 +214,23 @@ class Book extends Component {
                 </Content>
             </StyleProvider>
         );
+    }
+
+    getGenre(genre){
+        var out = '';
+        switch (genre) {
+            case 'non_fiction': out = "Non Fiction"; break;
+            case 'fiction': out = "Fiction"; break;
+            case 'love': out = "Love"; break;
+            case 'children': out = "Children and Teenagers"; break;
+            case 'self_help': out = "Self Help"; break;
+            case 'free': out = "Free"; break;
+            case 'erotica': out = "Erotica"; break;
+            case 'yoruba': out = "Yoruba"; break;
+            case 'faith': out = "Faith Based"; break;
+            case 'business': out = "Business"; break;
+            default: out = "Unclassified"; break;
+        }
     }
 
     save(){
