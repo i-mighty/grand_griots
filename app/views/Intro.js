@@ -11,7 +11,7 @@ class Intro extends Component {
     }
 
     componentWillMount(){
-        if (firebase.auth().currentUser.uid) {
+        if (firebase.auth().currentUser) {
             this.props.navigation.navigate('Auth')
         } else {
             
@@ -19,14 +19,12 @@ class Intro extends Component {
     }
 
     onSkipBtnHandle = (index) => {
-        Alert.alert('Skip');
         console.log(index);
     }
     doneBtnHandle = () => {
-        Alert.alert('Done');
+        this.props.navigation.navigate('Auth')
     }
     nextBtnHandle = (index) => {
-        Alert.alert('Next');
         console.log(index);
     }
     onSlideChangeHandle = (index, total) => {
@@ -63,6 +61,7 @@ class Intro extends Component {
         return (
             <AppIntroSlider
                 slides={this.pageArray}
+                onDone={this.doneBtnHandle}
             />
         );
     }
