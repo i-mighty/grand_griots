@@ -17,7 +17,7 @@ class SubRowInput extends Component {
                 </Col>
                 <Col style={styles.infoRowText}>
                     <Item > 
-                        <Input placeholder={this.props.placeholder} placeholderTextColor={materialColors.whiteTertiary} style={{color: materialColors.whitePrimary}} autoCapitalize='words' />
+                        <Input placeholder={this.props.placeholder} placeholderTextColor={materialColors.whiteTertiary} style={{color: materialColors.whitePrimary}} onChangeText={this.props.onChangeText} autoCapitalize='words' />
                     </Item>
                 </Col>
             </Row>
