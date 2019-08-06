@@ -45,6 +45,7 @@ class Categories extends Component {
                 { name: 'Self Help', link:'self_help', code: '#34495e', icon: require('../assets/Categories/selfHelp.png') }, { name: 'Free', link:'free', code: '#16a085', icon: require('../assets/Categories/free.png') },
                 { name: 'Erotica', link:'erotica', code: '#27ae60', icon: require('../assets/Categories/erotica.png') }, { name: 'Yoruba', link:'yoruba', code: '#2980b9', icon: require('../assets/Categories/yoruba.png') },
                 { name: 'Faith Based', link:'faith', code: '#8e44ad', icon: require('../assets/Categories/faith.png') }, { name: 'Business', link:'business', code: '#2c3e50', icon: require('../assets/Categories/business.png') },
+                { name: 'Poetry', link:'poetry', code: '#34b', icon: require('../assets/Categories/poetry.png') }
             ]
         };
     }
@@ -63,7 +64,7 @@ class Categories extends Component {
                             // fixed
                             // spacing={20}
                             renderItem={({item, index}) => (
-                                <TouchableOpacity style={[styles.itemContainer, {backgroundColor: item.code}]} onPress={() => this.props.navigation.navigate('Category', {title: item.name, link: item})}>
+                                <TouchableOpacity style={[styles.itemContainer, {backgroundColor: item.code}]} onPress={() => this.props.navigation.navigate('Category', {title: item.name, link: item.link})}>
                                     <Thumbnail source={item.icon} large square/>
                                     <Text style={styles.itemName}>{item.name}</Text>
                                 </TouchableOpacity>

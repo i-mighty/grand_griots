@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, ScrollView } from 'react-native';
-import { Container, StyleProvider, Content } from 'native-base';
+import { Container, StyleProvider, Content, Toast } from 'native-base';
 import platform from '../native-base-theme/variables/platform';
 import getTheme from '../native-base-theme/components';
 import Header from './Header'
@@ -16,7 +16,8 @@ class Category extends Component {
         super(props);
         this.state = {
             // title: this.props.navigation.getParam('title', 'Category'),
-            title: this.props.navigation.getParam('link', ''),
+            title: this.props.navigation.getParam('title', ''),
+            link: this.props.navigation.getParam('link', ''),
             loading: true,
             books: []
         };
@@ -29,7 +30,13 @@ class Category extends Component {
                 books.push(doc.data());
             })
             this.setState({books, loading:false})
-        });
+        }).catch(err => {
+            Toast.show({
+                text: 'Could not fetch your books\n.Please try again.',
+                duration: 4000,
+                type: 'danger'
+            })
+        })
     }
 
     render() {
