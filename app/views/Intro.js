@@ -22,7 +22,7 @@ class Intro extends Component {
         console.log(index);
     }
     doneBtnHandle = () => {
-        this.props.navigation.navigate('Auth')
+        this.props.navigation.navigate('Auth', {intro: true})
     }
     nextBtnHandle = (index) => {
         console.log(index);
@@ -32,27 +32,15 @@ class Intro extends Component {
     }
 
     pageArray = [{
-        title: 'Page 2',
-        description: 'Description 2',
-        image: require('../assets/slide1.jpg'),
-        imageStyle: {
-            height: 931,
-            width: 557,
-            resizeMode: 'center'
-        },
-        backgroundColor: '#EAC902',
-        fontColor: '#fff',
-        level: 10,
-    }, {
-        title: 'Page 1',
+        title: 'The Grand Griots',
         description: 'Description 1',
-        image: require('../assets/slide2.jpg'),
+        image: require('../assets/slide21.png'),
         imageStyle: {
             height: 931,
             width: 557,
             resizeMode: 'center'
         },
-        backgroundColor: '#1C1B21',
+        backgroundColor: '#060D15',
         fontColor: '#fff',
         level: 15,
     }];
