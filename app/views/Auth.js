@@ -33,15 +33,20 @@ class Auth extends Component {
             colors: ['#dedede', '#C8C', '#F8F8F8', '#f0ad4e', '#AAC5AA', '#FFB6C1', '#8899FF'],
             // colors: ['#fff', '#25CC', '#C8C8c8', '#A33', ],
             nowColor: 0,
-            color: '#fff'
+            color: '#fff',
+            intro: this.props.navigation.getParam('intro', false)
         };
     }
 
     componentWillMount(){
-        if (Firebase.auth().currentUser) {
+        if (Firebase.auth().currentUser && !this.state.intro) {
             this.props.navigation.navigate('Explore');
         } else {
-            
+            if (this.state.intro) {
+                
+            } else {
+                this.props.navigation.navigate('Intro') 
+            }
         }
     }
 
@@ -199,7 +204,7 @@ class Auth extends Component {
         this.setState({dialog1: false})
         this.loading(true)
         try {
-            await initUser.updateProfile({displayName: this.state.displayName})
+            await initUser.updateProfile({displayName: this.state.displayName,  photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-grand-griots.appspot.com/o/users%2FdefaultAvatar.png?alt=media&token=9b3ee2da-a551-40d4-9426-bec9882898b6'})
             //Save to redux
             //Navigate to 
             this.loading(false)
