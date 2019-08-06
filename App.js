@@ -7,12 +7,14 @@
  */
 
 import React, {Component} from 'react';
+import {AppState} from 'react-native'
 import {createAppContainer, createDrawerNavigator, createStackNavigator} from 'react-navigation'
 import Home from './app/views/Home';
 import SideMenu from './app/views/SideMenu';
 import * as MagicMove from 'react-native-magic-move';
 import "react-navigation-magic-move";
 import { widthPercentageToDP } from 'react-native-responsive-screen';
+import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
 import Profile from './app/views/Profile';
 import Book from './app/views/Book';
 import Library from './app/views/Library';
@@ -133,7 +135,7 @@ const AppNav = createDrawerNavigator({
     screen: Intro
   }
 },{
-  initialRouteName: 'Intro',
+  initialRouteName: 'Auth',
   contentComponent: (props) => <SideMenu {...props}/>,
   drawerWidth: widthPercentageToDP('100%')
 })
@@ -141,6 +143,22 @@ const AppNav = createDrawerNavigator({
 const AppContainer = createAppContainer(AppNav)
 
 export default class App extends Component<Props> {
+
+  componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    if (nextAppState === 'inactive' || nextAppState === 'background') {
+      TrackPlayer.destroy();
+    }
+    this.setState({appState: nextAppState});
+  };
+
   render() {
     return (
       <Root>
