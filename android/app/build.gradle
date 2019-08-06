@@ -152,6 +152,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-image-picker')
     implementation project(':@react-native-community_slider')
     implementation project(':lottie-react-native')
     implementation project(':react-native-firebase')
@@ -171,6 +172,7 @@ dependencies {
     //Firebase
     implementation "com.google.firebase:firebase-auth:17.0.0"
     implementation "com.google.firebase:firebase-firestore:19.0.0"
+    implementation "com.google.firebase:firebase-storage:17.0.0"
     
 }
 
