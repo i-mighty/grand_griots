@@ -52,9 +52,6 @@ class Home extends Component {
                                 </Button>
                             )
                         }
-                        <Button transparent onPress={() => this.setState({search: !this.state.search})}>
-                            <Icon name='search1' type='AntDesign' style={{color: !this.props.dark?materialColors.blackSecondary:materialColors.whiteSecondary}}/>
-                        </Button>
                     </Right>
                 </Header>
                 </View>

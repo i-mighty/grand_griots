@@ -37,7 +37,7 @@ class Help extends Component {
                 <Container>
                     <StyleProvider style={getTheme(platform)}>
                         <Content>
-                            <Header navigation={this.props.navigation} transparent={false} text='Help & Support'/>
+                            <Header navigation={this.props.navigation} transparent={false} text='Suggest a book'/>
                             <StyleProvider style={getTheme(platform)}>
                                 <Content contentContainerStyle={styles.centerVerticalContainer}>
                                     <Row style={{justifyContent: 'center', alignItems: 'center', height: 150}}>

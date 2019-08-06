@@ -95,7 +95,7 @@ class GridSection extends Component {
                             renderItem={({item, index}) => (
                                 <Card>
                                     <CardItem cardBody button onPress={() => this.props.navigation.navigate('Book', {book: item})}>
-                                        <Image source={{uri: item.image}} style={{height: 150, width: null, flex: 1}} resizeMode='stretch'/>
+                                        <Image source={{uri: item.image}} style={{height: 150, width: 120, flex: 1}} resizeMode='stretch'/>
                                     </CardItem>
                                     <CardItem button style={styles.homeCardContentBrief}>
                                         <View >

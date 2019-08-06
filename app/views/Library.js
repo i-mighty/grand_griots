@@ -71,7 +71,7 @@ class Library extends Component {
                                                     {currentBook.author}
                                                 </Text>
                                                 <Col style={[subStyles.infoText]}>
-                                                    <Text style={[material.body2White, subStyles.progItem]} ellipsizeMode='tail' numberOfLines={1}>1 hour, 50 minutes and 30 seconds</Text>
+                                                    <Text style={[material.body2White, subStyles.progItem]} ellipsizeMode='tail' numberOfLines={1}>{currentBook.time} minutes</Text>
                                                     <Progress.Bar indeterminate={true } color={platform.brandPrimary} style={subStyles.progItem}/>
                                                 </Col>
                                             </Col>

@@ -6,6 +6,7 @@ import getTheme from '../native-base-theme/components';
 import ScrollSection from './ScrollSection';
 import Header from './Header'
 import firebase from 'react-native-firebase';
+import {BackHandler} from 'react-native'
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 var fs = firebase.firestore();
@@ -31,6 +32,7 @@ class Home extends Component {
     }
 
     componentDidMount(){
+        BackHandler.addEventListener('hardwareBackPress', () => {return true});
         var books = [];
         var new_release=[];
         var fiction = []

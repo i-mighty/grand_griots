@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, Text } from 'react-native';
 import { Grid, Row, Content, Col, Icon, Button, Text as NBText, StyleProvider, Toast } from 'native-base';
 import * as Progress from 'react-native-progress';
 import styles from '../styles/style';
@@ -26,7 +26,8 @@ const genres = {
     erotica: "Erotica",
     yoruba: "Yoruba",
     faith: "Faith Based",
-    business: "Business"
+    business: "Business",
+    poetry: "Poetry"
 }
 
 
@@ -64,6 +65,7 @@ class Book extends Component {
     }
 
     async componentDidMount(){
+        const {book} = this.state;
         fs.collection('subscriptions').doc(user.uid).get().then(doc => {
             if (doc.exists) {
                 var sub_due_date = doc.data().due_date
@@ -76,16 +78,36 @@ class Book extends Component {
                 var active_sub = false
             }
             this.setState({sub_due_date, active_sub, spinner: false})
-            TrackPlayer.setupPlayer().then(async () => {
-                //Add the book to queue
-                await TrackPlayer.add({
-                    id: '1',
-                    url: this.state.active_sub ? this.state.book.audio_file : this.state.book.preview_file,
-                    title: this.state.book.name,
-                    artist: this.state.book.voiced_by,
-                    artwork: this.state.book.image
-                });
-            })
+
+            if (book.audio_file !== '') {
+                TrackPlayer.setupPlayer().then(async () => {
+                    //Add the book to queue
+                    TrackPlayer.add({
+                        id: '1',
+                        url: this.state.active_sub ? this.state.book.audio_file : this.state.book.preview_file,
+                        title: this.state.book.name,
+                        artist: this.state.book.voiced_by,
+                        artwork: this.state.book.image
+                    });
+                    TrackPlayer.updateOptions({
+                        stopWithApp: true,
+                        // capabilities: [
+                        //     TrackPlayer.CAPABILITY_PLAY,
+                        //     TrackPlayer.CAPABILITY_PAUSE,
+                        //     TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                        //     TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                        //     TrackPlayer.CAPABILITY_STOP
+                        // ],
+                        // compactCapabilities: [
+                        //     TrackPlayer.CAPABILITY_PLAY,
+                        //     TrackPlayer.CAPABILITY_PAUSE
+                        // ]
+                    });
+
+                })
+            } else {
+                this.setState({play: false})
+            }
         }).catch(err => {
             this.setState({spinner: false})
             Toast.show({
@@ -167,22 +189,33 @@ class Book extends Component {
                                                 </Row>
                                             ):(
                                                 <Col style={styles.AudioButtonCont}>
-                                                    <Progress.Pie indeterminate size={60} color={platform.brandPrimary}/>
+                                                    <Text style={[material.titleWhite, {textAlign: 'center'}]}>Audio book would be available shortly</Text>
                                                 </Col>
                                             )
                                         }
-                                        <ProgressSlider/>
+                                        {
+                                            this.state.play?(
+                                                <ProgressSlider/>
+                                            ):(null)
+                                        }
                                     </View>
                                 </ImageBackground>
                             {/* </MagicMove.View> */}
                         </Row>
+                        {
+                            this.state.book.audio_file !==''?(
+                                <Row>
+                                    
+                                </Row>
+                            ):(null)
+                        }
                         <Row style={styles.infoRow}>
                             <Col>
                                 <SubRow text={book.author} iconType='Entypo' iconName='pencil'/>
                                 <SubRow subText={book.name} iconType='Entypo' iconName='open-book'/>
                                 <SubRow subText={book.info} iconType='AntDesign' iconName='infocirlceo'/>
                                 <SubRow subText={this.getGenre(book.genre)} iconType='FontAwesome5' iconName='theater-masks'/>
-                                <SubRow subText={book.time + "minutes"} iconType='Entypo' iconName='time-slot'/>
+                                <SubRow subText={book.time + " minutes"} iconType='Entypo' iconName='time-slot'/>
                                 <SubRow subText={book.language} iconType='Entypo' iconName='language'/>
                                 <SubRow subText={book.voiced_by} iconType='Entypo' iconName='mic'/>
                             </Col>
@@ -229,8 +262,10 @@ class Book extends Component {
             case 'yoruba': out = "Yoruba"; break;
             case 'faith': out = "Faith Based"; break;
             case 'business': out = "Business"; break;
+            case 'poetry': out = "Poetry"; break;
             default: out = "Unclassified"; break;
         }
+        return out;
     }
 
     save(){

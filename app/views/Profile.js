@@ -16,7 +16,7 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 import moment from 'moment';
 
 const fs = firebase.firestore();
-var user = firebase.auth().currentUser;
+const user = firebase.auth().currentUser;
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -69,7 +69,7 @@ class Profile extends Component {
                                                 justifyContent: 'center'
                                             }, styles.imgBackground]
                                         }>
-                                            <Thumbnail style={{borderWidth: 1, borderColor: platform.brandPrimary, height: 120, width: 120}} large source={{uri: 'https://i.ytimg.com/vi/hrAAEMFAG9E/maxresdefault.jpg'}}/>
+                                            <Thumbnail style={{borderWidth: 1, borderColor: platform.brandPrimary, height: 120, width: 120}} large source={{uri: user.photoURL}}/>
                                         </View>
                                     </ImageBackground>
                                 </Row>
@@ -86,14 +86,15 @@ class Profile extends Component {
                                         <Text style={{...material.body1Object, color: platform.brandInfo}}>Books listened to</Text>
                                     </Col> */}
                                     <Col style={{justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
-                                        <Progress.Circle size={50} progress={this.state.progress} thickness={3} strokeCap='round' showsText color={platform.brandInfo}
+                                        {/* <Progress.Circle size={50} progress={1} thickness={3} strokeCap='round' showsText color={platform.brandInfo}
                                             formatText={(progress) => {
-                                                return (<Text style={{...material.body1Object, color: platform.brandInfo}}>{100*this.state.progress}%</Text>)
+                                                return (<Text style={{...material.body1Object, color: platform.brandInfo}}>{this.state.daysLeft}</Text>)
                                             }}
-                                        />
+                                        /> */}
+                                        <Text style={{...material.display1Object, color: platform.brandInfo}}>{this.state.daysLeft?this.state.daysLeft:0}</Text>
                                         <Text style={{...material.body1Object, color: platform.brandInfo}}>
                                             {
-                                                this.state.daysLeft?this.state.daysLeft+" days of premium left":"Upgrade to premium"
+                                                this.state.daysLeft?" days of premium left":"Upgrade to premium"
                                             }
                                         </Text>
                                     </Col>
