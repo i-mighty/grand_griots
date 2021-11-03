@@ -44,7 +44,7 @@
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
     "redux-persist": "^5.10.0",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
